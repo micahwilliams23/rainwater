@@ -1,0 +1,44 @@
+---
+title: "Rainwater Harvesting"
+author: "Micah Williams"
+date: "12/4/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      fig.width = 7,
+                      fig.height = 7)
+
+library(tidyverse)
+```
+
+```{r}
+l <- 8
+w <- 4
+
+fl <- 0.5
+
+vol = 275
+
+ggplot() +
+  
+  geom_rect(aes(xmin = 0, xmax = w,
+                ymin = 0, ymax = l),
+            fill = '#aaaaaa8d') +
+  
+  geom_text(aes(x = w / 2, y = l + 1,
+                label = round(l,2))) +
+  geom_text(aes(x = w + 0.75, y = l / 2,
+                label = round(w,2))) +
+  
+  scale_x_continuous(limits = c(0,40),
+                     name = 'width (ft.)') +
+  scale_y_continuous(limits = c(0,40),
+                     name = 'length (ft.)') +
+  
+  coord_equal() +
+  theme_minimal()
+
+```
+
